@@ -1,0 +1,28 @@
+{
+  "name": "orchestra-copy",
+  "version": "1.0.0",
+  "description": "Snippet to copy Orchestra profiles",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Martin Starosta",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "async-waterfall": "^0.1.5",
+    "chalk": "^2.4.1",
+    "cors": "^2.8.5",
+    "curl-request": "^1.1.1",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "is-port-reachable": "^2.0.0",
+    "items-promise": "^1.0.0",
+    "net": "^1.0.2",
+    "node-rest-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

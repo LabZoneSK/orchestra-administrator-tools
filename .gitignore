@@ -1,0 +1,9 @@
+#Node modules
+/node_modules
+/build
+
+#Client part
+/client/build
+/client/node_modules
+
+.env
