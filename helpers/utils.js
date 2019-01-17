@@ -10,6 +10,5 @@ const getDateDifference = (date) => {
 }
 
 module.exports = {
-  getLocaleDateString,
   getDateDifference
 }
