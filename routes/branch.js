@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const store = require('../helpers/storage').getStore();
 const utils = require('../helpers/utils')
 const branchAPI = require('../orchestra/branchAPI');
 
@@ -21,16 +22,31 @@ router.get('/:id/publish', (req, res) => {
     .catch(err => console.log('Not able to fetch data from Orchestra. ', err));
 });
 
+/** Cancel publish branch schedule */
+router.get('/:id/cancel-publish', (req, res) => {
+  branchAPI.cancelBranchPublish(req.params.id, 0)
+    .then(() => res.send({result: 'Publikovanie zastavene.'}))
+    .catch(err => console.log('Not able to fetch data from Orchestra. ', err));
+});
+
 /** Publish branch with specified delay */
 router.get('/:id/publish/:delay', (req, res) => {
 
-  //TODO: Validate input!
-  const delay = utils.getDateDifference(decodeURIComponent(req.params.delay));
-  console.log(delay)
+  const {
+    id,
+    delay
+  } = req.params;
 
-  branchAPI.publishBranch(req.params.id, delay)
+  //TODO: Validate input!
+  const delayAsDate = utils.getDateDifference(decodeURIComponent(delay));
+
+  branchAPI.publishBranch(id, delay)
     .then((timerID) => {
-      console.log(timerID)
+      store.union('schedules', {
+        branchId: id,
+        date: decodeURIComponent(delay)
+      });
+
       res.send(JSON.stringify({
         result: `Publikovanie nastavení je nastavené.`
       }))

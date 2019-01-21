@@ -1,0 +1,20 @@
+{
+  "schedules": [
+    {
+      "branchId": "1",
+      "date": "Thu, 17 Jan 2019 20:00:45 GMT"
+    },
+    {
+      "branchId": "1",
+      "date": "Thu, 17 Jan 2019 20:00:42 GMT"
+    },
+    {
+      "branchId": "1",
+      "date": "Thu, 17 Jan 2019 20:00:01 GMT"
+    },
+    {
+      "branchId": "1",
+      "date": "Thu, 17 Jan 2019 13:32:52 GMT"
+    }
+  ]
+}
